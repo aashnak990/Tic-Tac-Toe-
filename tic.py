@@ -8,6 +8,10 @@ game_still_going=True
 winner = None
 #whos turn it is
 current_player='X'
+print("Enter the name who will have 'X':")
+name1 = input()
+print("Enter the name who will have 'O':")
+name2 = input()
 
 # display board
 def disp_board():
@@ -16,6 +20,7 @@ def disp_board():
     print(board[6] + '|' +board[7] + '|' +board[8])
 #play game
 def play_game():
+    global winner
     # display the initial board first
     disp_board()
     #while the game is still going
@@ -26,7 +31,12 @@ def play_game():
         flip_player()
     #if game has ended
     if winner == 'X' or winner =='O':
-        print (winner + ' won')
+        if winner == 'X':
+            winner = name1
+            print (winner + ' won')
+        elif winner == 'O':
+            winner = name2
+            print(winner + ' won')
     elif winner == None :
         print('Tie')
 def check_if_game_over():
